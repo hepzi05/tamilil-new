@@ -6,7 +6,7 @@ require "sidebar.php";
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <div>
-            <h4 class="text-secondary">Hello Bharathi Kannan R</h4>
+            <h4>Hello Bharathi Kannan R</h4>
             <span>Last logged in on Feb 19, 2023, 07:18 AM (EST)</span>
         </div>
         <div>

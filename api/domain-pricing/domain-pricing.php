@@ -31,7 +31,7 @@ try {
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode("{status: 401, message: " . $values[2]['value'] . "}");
     } else {
-        $data = array("year1" => $values[12]["attributes"], "year2" => $values[14]["attributes"], "year3" => $values[16]["attributes"], "year4" => $values[18]["attributes"], "year5" => $values[20]["attributes"]);
+        $data = array("data" => array($values[12]["attributes"], $values[14]["attributes"], $values[16]["attributes"]));
         echo json_encode($data);
     }
 } catch (Exception $e) {

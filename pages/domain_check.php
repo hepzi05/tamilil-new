@@ -5,6 +5,10 @@ if(isset($_POST["searchButton"])){
     $_SESSION["searchedDomain"] = $_POST["search"];
 }
 
+if(isset($_POST['choose'])){
+    header("Location: domain_thankyou.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +47,7 @@ if(isset($_POST["searchButton"])){
 
         <!-- Navbar -->
         <div class="container-xxl position-relative p-0">
-        <?php include "./navbar.php"; ?>
+            <?php include "navbar.php"; ?>
         </div>
         <!-- Navbar End -->
 
