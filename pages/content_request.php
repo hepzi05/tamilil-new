@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+print_r($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +47,8 @@
         <!-- Navbar End -->
 
         <br><br><br><br>
-
+        <h1 class="mb-3">Billing Information</h1>
+        <?php print_r(unserialize($_SESSION["pricingInfo"])); ?>
         <div class="row">
             <div class="col-md-8 col-sm-12">
                 <div class="border p-3">
@@ -135,7 +141,7 @@
                     <div class="card p-3 mb-3">
                         <div class="card-body">
                             <div class="float-start">
-                                <span id="domain" class="fw-bold">bharathi.com</span><br>
+                                <span id="domain" class="fw-bold"><?php echo $_SESSION["searchedDomain"]; ?></span><br>
                                 <span>3 years</span>
                             </div>
                             <span class="float-end mt-2 fw-bold">$23</span>
@@ -151,7 +157,7 @@
         </div>
 
         <!-- Footer Start -->
-        <?php include "footer.php"; ?>
+        <?php include "components/footer.php"; ?>
         <!-- Footer End -->
 
 

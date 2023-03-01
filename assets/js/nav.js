@@ -3,10 +3,10 @@ $(document).ready(function() {
     console.log($(this).scrollTop())
     if($(this).scrollTop() >= 30){
       // set to new image
-      $(".brand-logo img").attr("src","img/tamili-logo-black.png");
+      $(".brand-logo img").attr("src","assets/img/tamili-logo-black.png");
     } else {
       //back to default
-      $(".brand-logo img").attr("src","img/tamili-logo-white.png");
+      $(".brand-logo img").attr("src","assets/img/tamili-logo-white.png");
     }
   })
 })

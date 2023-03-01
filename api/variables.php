@@ -8,4 +8,3 @@
     define('NAMECHEAP_APIUSER', 'siddhamedicine');
     define('NAMECHEAP_APIKEY', '5ba6c202d1ce4322ba049499f3851ccf');
     define('NAMECHEAP_CLIENTIP', '59.91.155.200');
-?>

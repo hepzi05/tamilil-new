@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (isset($_POST['selectYearPlan'])) {
+    $pricing = $_POST["pricingData"];
+
+    $_SESSION["pricingInfo"] = $pricing;
+    header("Location: content_request.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,95 +53,22 @@
         <div class="container-xxl pb-5" id="hosting" style="padding-top:7.5rem;">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mx-auto mb-5 pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3" id="domain"></h1>
+                    <h1 class="mb-3" style="color: #0d6efd;" id="domain"></h1>
                     <h4>மிக அருமையான தேர்வு</h4>
                     <p>இனி, உங்கள் இணைய முகவரிக்கான</p>
                     <h2>இணைய அகத்தை</h2>
                     <h4>உருவாக்குங்கள்!</h4>
                 </div>
-                <div class="row gy-5 gx-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="position-relative shadow rounded border-top border-2 border-primary">
-                            <div class="d-flex align-items-center justify-content-center position-absolute top-0 start-50 translate-middle bg-primary rounded-circle" style="width: 45px; height: 45px; margin-top: -3px;">
-                                <i class="fa fa-bag-shopping text-white"></i>
-                            </div>
-                            <!-- <div class="text-center border-bottom p-4 pt-5">
-                                <h4 class="fw-bold">Personal Website</h4>
-                                <p class="mb-0">Managed 5 section Scrolling Website</p>
-                            </div> -->
-                            <div class="text-center border-bottom p-4">
-                                <p class="text-primary mb-1">Latest Offer - <strong>1 Year</strong></p>
-                                <h1 class="mb-3">
-                                    <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>2.49<small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
-                                </h1>
-                                <a class="btn btn-primary px-4 py-2" href="content_request.php">Select</a>
-                            </div>
-                            <!-- <div class="p-4">
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>100 GB Disk Space</p>
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Unlimited Bandwith</p>
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Upgrade to Positive SSL</p>
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Automatic Malware Removal</p>
-                                <p class="mb-0"><i class="fa fa-check text-primary me-3"></i>30 Days Money Back Guarantee</p>
-                            </div> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="position-relative shadow rounded border-top border-2 border-secondary">
-                            <div class="d-flex align-items-center justify-content-center position-absolute top-0 start-50 translate-middle bg-secondary rounded-circle" style="width: 45px; height: 45px; margin-top: -3px;">
-                                <i class="fa fa-bags-shopping text-white"></i>
-                            </div>
-                            <!-- <div class="text-center border-bottom p-4 pt-5">
-                                <h4 class="fw-bold">Startup Website</h4>
-                                <p class="mb-0">Managed 5-7 page Website</p>
-                            </div> -->
-                            <div class="text-center border-bottom p-4">
-                                <p class="text-primary mb-1">Latest Offer - <strong>2 Years</strong></p>
-                                <h1 class="mb-3">
-                                    <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>5.49<small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
-                                </h1>
-                                <a class="btn btn-primary px-4 py-2" href="content_request.php">Select</a>
-                            </div>
-                            <!-- <div class="p-4">
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>100 GB Disk Space</p>
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Unlimited Bandwith</p>
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Upgrade to Positive SSL</p>
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Automatic Malware Removal</p>
-                                <p class="mb-0"><i class="fa fa-cogs text-primary me-3"></i>30 Days Money Back Guarantee</p>
-                            </div> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="position-relative shadow rounded border-top border-2 border-primary">
-                            <div class="d-flex align-items-center justify-content-center position-absolute top-0 start-50 translate-middle bg-primary rounded-circle" style="width: 45px; height: 45px; margin-top: -3px;">
-                                <i class="fa fa-dropbox text-white"></i>
-                            </div>
-                            <!-- <div class="text-center border-bottom p-4 pt-5">
-                                <h4 class="fw-bold">Business Website</h4>
-                                <p class="mb-0">Managed 10+ pages Website</p>
-                            </div> -->
-                            <div class="text-center border-bottom p-4">
-                                <p class="text-primary mb-1">Latest Offer - <strong>5 Years</strong></p>
-                                <h1 class="mb-3">
-                                    <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>11.49<small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
-                                </h1>
-                                <a class="btn btn-primary px-4 py-2" href="content_request.php">Select</a>
-                            </div>
-                            <!-- <div class="p-4">
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>100 GB Disk Space</p>
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Unlimited Bandwith</p>
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Upgrade to Positive SSL</p>
-                                <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Automatic Malware Removal</p>
-                                <p class="mb-0"><i class="fa fa-check text-primary me-3"></i>30 Days Money Back Guarantee</p>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
+                <form method="POST">
+                    <input type="hidden" name="pricingData" />
+                    <div class="row gy-5 gx-4" id="pricingBlock"></div>
+                </form>
             </div>
         </div>
         <!-- Pricing End -->
 
         <!-- Footer Start -->
-        <?php include "footer.php"; ?>
+        <?php include "components/footer.php"; ?>
         <!-- Footer End -->
 
 
@@ -153,7 +89,35 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script>
-        document.getElementById("domain").innerText = localStorage.getItem("search");
+        document.getElementById("domain").innerText = localStorage.getItem("searchedDomain");
+
+        function setData(data) {
+            console.log(data);
+            document.getElementById("pricingData").value(data);
+        }
+
+        // Check domaim pricing
+        $.post({
+            url: "../api/domain-pricing/domain-pricing.php",
+            data: {
+                domain: localStorage.getItem("searchedDomain")
+            },
+            success: function(result) {
+                const data = JSON.parse(result);
+                var element = document.getElementById("pricingBlock");
+                var html = "";
+
+                data.data.map((item, index) => {
+                    console.log(item);
+                    html += '<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s"><div class="position-relative shadow rounded border-top border-2 border-primary"><div class="d-flex align-items-center justify-content-center position-absolute top-0 start-50 translate-middle bg-primary rounded-circle" style="width: 45px; height: 45px; margin-top: -3px;"><i class="fa fa-bag-shopping text-white"></i></div><div class="text-center border-bottom p-4"><p class="text-primary mb-1">Latest Offer - <strong>' + item.DURATION + ' YEAR</strong></p><h1 class="mb-3"><small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>' + item.PRICE + '<small class="align-bottom" style="font-size: 16px; line-height: 40px;"></small></h1><button class="btn btn-primary px-4 py-2" name="selectYearPlan" onClick="setData(' + JSON.stringify(item) + ')">Select</button></div></div></div>';
+                });
+
+                element.innerHTML = html;
+            },
+            error: function(error) {
+                console.log(JSON.stringify(error), "error");
+            }
+        })
     </script>
 </body>
 
