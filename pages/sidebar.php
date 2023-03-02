@@ -53,15 +53,23 @@ if (isset($_POST["logout"])) {
 
 <body>
 
-    <header class="navbar bg-custom-primary sticky-top flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 text-light fw-bold" href="#">Company name</a>
+    <header class="navbar bg-primary sticky-top flex-md-nowrap p-1 shadow">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-theme justify-content-between px-4 px-lg-5 py-3"> -->
+        <a href="index.php" class="p-0">
+            <img src="../assets/img/tamili-logo-white.png" class="brand-logo" alt="Logo">
+        </a>
+        <div class="float-end">
+            <a href="./login.php" class="btn btn-theme btn-sm me-4" name="logout">Sign out</a>
+</div>
+        <!-- </nav> -->
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 text-light fw-bold" href="#">Company name</a> -->
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="navbar-nav">
+        <!-- <div class="navbar-nav">
             <form method="POST">
                 <div class="nav-item text-nowrap bg-danger">
                     <button class="btn btn-danger nav-link px-3 text-light" name="logout">
@@ -69,7 +77,7 @@ if (isset($_POST["logout"])) {
                     </button>
                 </div>
             </form>
-        </div>
+        </div> -->
     </header>
 
     <div class="container-fluid">
@@ -78,25 +86,25 @@ if (isset($_POST["logout"])) {
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column" id="ulCategory">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="dashboard.php">
+                            <a class="nav-link fw-bold" aria-current="page" href="dashboard.php">
                                 <!-- <span data-feather="home"></span> -->
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="domain_list.php">
+                            <a class="nav-link fw-bold" href="domain_list.php">
                                 <!-- <span data-feather="file"></span> -->
                                 Domain list
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="ssl_certificate.php">
+                            <a class="nav-link fw-bold" href="ssl_certificate.php">
                                 <!-- <span data-feather="shopping-cart"></span> -->
                                 SSL Certificate
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php">
+                            <a class="nav-link fw-bold" href="profile.php">
                                 <!-- <span data-feather="users"></span> -->
                                 Profile
                             </a>
