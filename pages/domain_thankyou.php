@@ -91,7 +91,7 @@ if (isset($_POST['selectYearPlan'])) {
     <script>
         document.getElementById("domain").innerText = localStorage.getItem("searchedDomain");
 
-        function setData(data) {
+        function setData(data) { 
             console.log(data);
             document.getElementById("pricingData").value(data);
         }

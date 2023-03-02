@@ -44,7 +44,7 @@ print_r($_SESSION);
         <div class="container-xxl position-relative p-0">
             <?php include "navbar.php"; ?>
         </div>
-        <!-- Navbar End -->
+        <!-- Navbar End --> 
 
         <br><br><br><br>
         <h1 class="mb-3">Billing Information</h1>
