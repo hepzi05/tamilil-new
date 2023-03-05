@@ -54,14 +54,14 @@ if (isset($_POST["logout"])) {
 <body>
 
     <header class="navbar bg-primary sticky-top flex-md-nowrap p-1 shadow">
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-theme justify-content-between px-4 px-lg-5 py-3"> -->
-        <a href="index.php" class="p-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-theme justify-content-between px-4 px-lg-5 py-1">
+        <a href="../index.php" class="p-0">
             <img src="../assets/img/tamili-logo-white.png" class="brand-logo" alt="Logo">
         </a>
         <div class="float-end">
             <a href="./login.php" class="btn btn-theme btn-sm me-4" name="logout">Sign out</a>
 </div>
-        <!-- </nav> -->
+        </nav>
         <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 text-light fw-bold" href="#">Company name</a> -->
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
@@ -92,13 +92,13 @@ if (isset($_POST["logout"])) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="domain_list.php">
+                            <a class="nav-link fw-bold" href="domain-list.php">
                                 <!-- <span data-feather="file"></span> -->
                                 Domain list
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="ssl_certificate.php">
+                            <a class="nav-link fw-bold" href="ssl-certificate.php">
                                 <!-- <span data-feather="shopping-cart"></span> -->
                                 SSL Certificate
                             </a>
