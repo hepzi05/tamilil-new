@@ -28,17 +28,22 @@ if (!defined("NAMECHEAP_DOMAIN") && !defined("NAMECHEAP_APIUSER") && !defined("N
 
 try {
 
-    $response = file_get_contents("https://api.namecheap.com/xml.response?ApiUser=siddhamedicine&ApiKey=5ba6c202d1ce4322ba049499f3851ccf&UserName=siddhamedicine&Command=namecheap.users.create&ClientIp=59.91.155.200&newusername=bharathi573&newuserpassword=Bhar@#02&EmailAddress=bharathikannanr1999@gmail.com&FirstName=bharathi&LastName=R&AcceptTerms=1&AcceptNews=0&JobTitle=software%20developer&Organization=NC&Address1=8939%20S.%20cross%20Blvd&Address2=high%20street&City=California&StateProvince=CA&Zip=90045&Country=US&Phone=+1.6613102107&Fax=+1.6613102107");
+    $response = file_get_contents(NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=" . NAMECHEAP_APIUSER . "&Command=namecheap.users.create&ClientIp=" . NAMECHEAP_CLIENTIP . "&newusername=$username&newuserpassword=$password&EmailAddress=$email&FirstName=$firstname&LastName=$lastname&AcceptTerms=$acceptTerms&AcceptNews=$acceptNews&JobTitle=$jobtitle&Organization=$organization&Address1=$address1&Address2=$address2&City=$city&StateProvince=$state&Zip=$zipcode&Country=$country&Phone=$phone&Fax=$fax");
+
+    // echo NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=" . NAMECHEAP_APIUSER . "&Command=namecheap.users.create&ClientIp=" . NAMECHEAP_CLIENTIP . "&newusername=$username&newuserpassword=$password&EmailAddress=$email&FirstName=$firstname&LastName=$lastname&AcceptTerms=$acceptTerms&AcceptNews=$acceptNews&JobTitle=$jobtitle&Organization=$organization&Address1=$address1&Address2=$address2&City=$city&StateProvince=$state&Zip=$zipcode&Country=$country&Phone=$phone&Fax=$fax";
 
     xml_parse_into_struct($xmlparser, $response, $values);
     xml_parser_free($xmlparser);
+
+    // print_r($values);
 
     if ($values[2]["tag"] == "ERROR") {
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode("{status: 401, message: " . $values[2]['value'] . "}");
     } else {
-        print_r($values);
+        echo json_encode($values);
     }
 } catch (Exception $e) {
+    // print_r($e);
     echo $e;
 }
