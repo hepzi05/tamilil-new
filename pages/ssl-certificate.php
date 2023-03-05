@@ -34,9 +34,36 @@ require "sidebar.php";
 </main>
 
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-<link href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css" rel="stylesheet" />
 <script>
 $(document).ready(function() {
     $('#table_id').DataTable();
+});
+</script>
+<script>
+const username = "siddhamedicine";
+
+console.log(username, "user");
+
+$.post({
+    url: "../api/get-ssl-certificate/get-ssl-certificate.php",
+    data: {
+        username: username,
+    },
+    success: function(result) {
+        console.log(result, "result");
+        const response = JSON.parse(result);
+        console.log(JSON.parse(result), "success");
+        if (response) {
+            console.log(response, "response");
+            // window.location.replace("dashboard.php");
+        } else {
+            alert("No response");
+        }
+    },
+    error: function(error) {
+        console.log(JSON.stringify(error), "error");
+    }
+
 });
 </script>

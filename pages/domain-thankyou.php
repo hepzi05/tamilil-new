@@ -56,8 +56,8 @@ if (isset($_POST['selectYearPlan'])) {
                     <img src="../assets/img/tamili-logo-white.png" class="brand-logo" alt="Logo">
                 </a>
                 <div class="float-end">
-                    <a href="pages/login.php" class="btn btn-theme me-4">Login</a>
-                    <a href="#domain" class="btn btn-theme">Get Started</a>
+                    <a href="login.php" class="btn btn-theme me-4">Login</a>
+                    <a href="../#domain" class="btn btn-theme">Get Started</a>
                 </div>
             </nav>
         </div>
