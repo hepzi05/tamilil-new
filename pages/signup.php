@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><?php include"html-head.php"; ?></head>
+<head><?php include "./components/html-head.php"; ?></head>
 
 <body>
     <div class="container-xxl bg-white p-0">
@@ -17,7 +17,15 @@
 
         <!-- Navbar -->
         <div class="container-xxl position-relative p-0">
-            <?php include"navbar.php"; ?>
+            <nav class="navbar navbar-expand-lg navbar-light bg-theme justify-content-between px-4 px-lg-5 py-3">
+                <a href="../index.php" class="navbar-brand p-0">
+                    <img src="../assets/img/tamili-logo-white.png" class="brand-logo" alt="Logo">
+                </a>
+                <div class="float-end">
+                    <a href="./login.php" class="btn btn-theme me-4">Login</a>
+                    <a href="../#domain" class="btn btn-theme">Get Started</a>
+                </div>
+            </nav>
         </div>
         <!-- Navbar End -->
 
@@ -89,7 +97,7 @@
         <!-- Signup End -->
 
         <!-- Footer Start -->
-        <?php include"footer.php"; ?>
+        <?php include "./components/footer.php"; ?>
         <!-- Footer End -->
 
 
@@ -100,15 +108,15 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../assets/lib/wow/wow.min.js"></script>
+    <script src="../assets/lib/easing/easing.min.js"></script>
+    <script src="../assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="../assets/lib/counterup/counterup.min.js"></script>
+    <script src="../assets/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/nav.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/nav.js"></script>
 </body>
 
 </html>

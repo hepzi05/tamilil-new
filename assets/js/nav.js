@@ -3,10 +3,22 @@ $(document).ready(function() {
     console.log($(this).scrollTop())
     if($(this).scrollTop() >= 30){
       // set to new image
-      $(".brand-logo img").attr("src","assets/img/tamili-logo-black.png");
+      $(".brand-logo").attr("src","../assets/img/tamili-logo-black.png");
     } else {
       //back to default
-      $(".brand-logo img").attr("src","assets/img/tamili-logo-white.png");
+      $(".brand-logo").attr("src","../assets/img/tamili-logo-white.png");
+    }
+  })
+})
+$(document).ready(function() {
+  $(window).on("scroll", function() {
+    console.log($(this).scrollTop())
+    if($(this).scrollTop() >= 30){
+      // set to new image
+      $(".logo-index").attr("src","assets/img/tamili-logo-black.png");
+    } else {
+      //back to default
+      $(".logo-index").attr("src","assets/img/tamili-logo-white.png");
     }
   })
 })
