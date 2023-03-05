@@ -12,3 +12,34 @@ require "sidebar.php";
         </div>
     </div>
 </main>
+
+<script>
+        // function checkLogin() {
+            const username = "siddhamedicine";
+
+            console.log(username, "user");
+
+            $.post({
+                url: "../api/get-domain-lists/get-domain-lists.php",
+                data: {
+                    username: username,
+                },
+                success: function(result) {
+                    console.log(result,"result");
+                    const response = JSON.parse(result);
+                    console.log(JSON.parse(result), "success");
+                    if (response) {
+                        console.log(response,"response");
+                        // window.location.replace("dashboard.php");
+                    } else {
+                        alert("No response");
+                    }
+                },
+                error: function(error) {
+                    console.log(JSON.stringify(error), "error");
+                }
+
+            });
+
+        // }
+    </script>

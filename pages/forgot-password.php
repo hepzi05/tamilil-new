@@ -9,15 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your website in tamil : Tamilil.com</title>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
     <!-- Libraries Stylesheet -->
     <link href="../assets/lib/animate/animate.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@300;400;700&family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@300;400;700&family=Quicksand:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -27,7 +32,8 @@
 <body>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -48,27 +54,27 @@
         </div>
         <!-- Navbar End -->
 
-        <!-- Login Start -->
+        <!-- Forgot Password Start -->
         <div class="container-xxl pb-5" id="hosting" style="padding-top:7.5rem;">
             <div class="container px-lg-5 mt-4">
                 <div class="row wow fadeInUp">
                     <div class="col-lg-3 col-md-4 col-sm-12"></div>
                     <div class="col-lg-6 col-md-4 col-sm-12">
                         <div class="row border border-2 border-primary rounded-2">
-                            <div class="col-ld-6 col-md-8 col-sm-12 bg-theme p-3 fw-bold text-light">Forgot password</div>
-                            <button class="col-ld-6 col-md-4 col-sm-12 bg-theme p-3 fw-bold text-light text-end border-0" onclick="document.location='login.php'">LOG
-                                IN?</button>
-                            <div class="form-group d-flex flex-row mt-5 ms-5">
-                                <label class="fw-bold text-secondary mt-2">Username</label>
-                                <input type="text" class="form-control w-50 ms-2" id="name" placeholder="Username" />
+                            <div class="col-ld-6 col-md-8 col-sm-12 bg-theme p-3 fw-bold text-light">Forgot password
                             </div>
-                            <h4 class="text-secondary text-center mt-2">Or</h4>
-                            <div class="form-group d-flex flex-row mt-2 ms-5">
-                                <label class="fw-bold text-secondary mt-2">Email</label>
-                                <input type="email" class="form-control w-50 ms-5" id="email" placeholder="email" />
+                            <button
+                                class="col-ld-6 col-md-4 col-sm-12 bg-theme p-3 fw-bold text-light text-end border-0"
+                                onclick="document.location='login.php'">LOG
+                                IN?</button>
+                            <div class="form-group d-flex flex-row mt-5 ms-4">
+                                <label class="fw-bold text-secondary mt-2">Email/Username</label>
+                                <input type="text" class="form-control w-50 ms-4" id="name" placeholder="Enter email/username" />
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="border border-0 rounded-2 bg-theme p-2 fw-bold text-light mt-4 mb-4">
+                                <button type="submit"
+                                    class="border border-0 rounded-2 bg-theme p-2 fw-bold text-light mt-5 mb-4"
+                                    onclick="forgotPassword()">
                                     Submit</button>
                             </div>
                         </div>
@@ -77,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <!-- Login End -->
+        <!-- Forgot Password End -->
 
         <!-- Footer Start -->
         <?php include "./components/footer.php"; ?>
@@ -100,6 +106,35 @@
     <!-- Template Javascript -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/nav.js"></script>
+    <script>
+    function forgotPassword() {
+        const username = "siddhamedicine";
+
+        console.log(username, "user");
+
+        $.post({
+            url: "../api/forgot-password/forgot-password.php",
+            data: {
+                username: username,
+            },
+            success: function(result) {
+                console.log(result, "result");
+                const response = JSON.parse(result);
+                console.log(JSON.parse(result), "success");
+                if (response) {
+                    console.log(response, "response");
+                    // window.location.replace("dashboard.php");
+                } else {
+                    alert("No response");
+                }
+            },
+            error: function(error) {
+                console.log(JSON.stringify(error), "error");
+            }
+
+        });
+    }
+    </script>
 </body>
 
 </html>
