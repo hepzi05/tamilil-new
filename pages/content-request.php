@@ -42,7 +42,7 @@ print_r($_SESSION);
 
         <!-- Navbar -->
         <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light bg-theme justify-content-between px-4 px-lg-5 py-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-theme justify-content-between px-4 px-lg-5 py-3">
                 <a href="../index.php" class="navbar-brand p-0">
                     <img src="../assets/img/tamili-logo-white.png" class="brand-logo" alt="Logo">
                 </a>
@@ -52,7 +52,7 @@ print_r($_SESSION);
                 </div>
             </nav>
         </div>
-        <!-- Navbar End -->
+        <!-- Navbar End --> 
 
         <br><br><br><br>
         <h1 class="mb-3">Billing Information</h1>
