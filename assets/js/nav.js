@@ -10,6 +10,18 @@ $(document).ready(function() {
     }
   })
 })
+$(document).ready(function() {
+  $(window).on("scroll", function() {
+    console.log($(this).scrollTop())
+    if($(this).scrollTop() >= 30){
+      // set to new image
+      $(".logo-index").attr("src","assets/img/tamili-logo-black.png");
+    } else {
+      //back to default
+      $(".logo-index").attr("src","assets/img/tamili-logo-white.png");
+    }
+  })
+})
 $(function() {
     var nav = $(".bg-theme");
     $(window).scroll(function() {    
