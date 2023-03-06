@@ -15,18 +15,15 @@ require "sidebar.php";
         <table id="table_id" class="table" width="100%">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>S.No</th>
                     <th>Name</th>
                     <th>Status</th>
                     <th>Purchased for</th>
                     <th>Time remaining</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- <tr>
-                    <td>Shinchan</td>
-                    <td>Yellow</td>
-                </tr> -->
+            <tbody id="tbody">
+                
             </tbody>
         </table>
     </div>
@@ -57,6 +54,12 @@ $.post({
         if (response) {
             console.log(response, "response");
             // window.location.replace("dashboard.php");
+
+            var table = document.getElementById("tbody");
+            table.innerHTML = "";
+            response.map((item,index)=>{
+                table.innerHTML+="<tr><td>"+(index+1)+"</td>"
+            })
         } else {
             alert("No response");
         }
