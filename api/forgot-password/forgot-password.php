@@ -12,16 +12,11 @@ if (str_contains($queryValue, "@")) {
     $queryParam = "username";
 }
 
-echo $queryValue;
-echo $queryParam;
-
 if (!defined('NAMECHEAP_DOMAIN') && !defined('NAMECHEAP_APIUSER') && !defined('NAMECHEAP_APIKEY') && !defined('NAMECHEAP_CLIENTIP')) {
     echo "Config variables are missing...";
 }
 
 try {
-
-    echo NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=" . NAMECHEAP_APIUSER . "&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.resetpassword&findby=$queryParam&findbyvalue=$queryValue";
 
     $response = file_get_contents(
         NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.resetpassword&findby=$queryParam&findbyvalue=$queryValue"

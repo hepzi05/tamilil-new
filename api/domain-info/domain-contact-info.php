@@ -4,6 +4,7 @@ $xmlparser = xml_parser_create();
 session_start();
 
 $username = $_POST['username'];
+$domainname = $_POST['domainname'];
 
 if (!defined('NAMECHEAP_DOMAIN') && !defined('NAMECHEAP_APIUSER') && !defined('NAMECHEAP_APIKEY') && !defined('NAMECHEAP_CLIENTIP')) {
     echo "Config variables are missing...";
@@ -12,7 +13,7 @@ if (!defined('NAMECHEAP_DOMAIN') && !defined('NAMECHEAP_APIUSER') && !defined('N
 try {
 
     $response = file_get_contents(
-        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.ssl.getList"
+        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.domains.getContacts&DomainName=$domainname"
     );
 
     xml_parse_into_struct($xmlparser, $response, $values);
@@ -26,8 +27,10 @@ try {
         $filteredArr = [];
 
         foreach ($values as $item) {
-            if ($item["tag"] == "SSL") {
-                array_push($filteredArr, $item);
+            if (in_array($item["tag"], ["DOMAINCONTACTSRESULT", "FIRSTNAME", "LASTNAME", "ADDRESS1", "ADDRESS2", "CITY", "STATEPROVINCE", "STATEPROVINCECHOICE", "POSTALCODE", "COUNTRY", "PHONE", "FAX", "EMAILADDRESS", "PHONEEXT", "TECH", "JOBTITLE", "ADMIN", "AUXBILLING"])) {
+                if ($item["tag"] == "WHOISGUARD" && $item["attributes"] || $item["tag"] != "WHOISGUARD") {
+                    array_push($filteredArr, $item);
+                }
             }
         }
 
