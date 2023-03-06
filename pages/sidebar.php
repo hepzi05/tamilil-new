@@ -55,12 +55,12 @@ if (isset($_POST["logout"])) {
 
     <header class="navbar bg-primary sticky-top flex-md-nowrap p-1 shadow">
         <nav class="navbar navbar-expand-lg navbar-light bg-theme justify-content-between px-4 px-lg-5 py-1">
-        <a href="../index.php" class="p-0">
-            <img src="../assets/img/tamili-logo-white.png" class="brand-logo" alt="Logo">
-        </a>
-        <div class="float-end">
-            <a href="./login.php" class="btn btn-theme btn-sm me-4" name="logout">Sign out</a>
-</div>
+            <a href="../index.php" class="p-0">
+                <img src="../assets/img/tamili-logo-white.png" class="brand-logo" alt="Logo">
+            </a>
+            <div class="float-end">
+                <a href="./login.php" class="btn btn-theme btn-sm me-4" name="logout">Sign out</a>
+            </div>
         </nav>
         <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 text-light fw-bold" href="#">Company name</a> -->
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
@@ -92,6 +92,12 @@ if (isset($_POST["logout"])) {
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link fw-bold" href="#">
+                                <!-- <span data-feather="users"></span> -->
+                                Expired/Expiring
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link fw-bold" href="domain-list.php">
                                 <!-- <span data-feather="file"></span> -->
                                 Domain list
@@ -103,11 +109,27 @@ if (isset($_POST["logout"])) {
                                 SSL Certificate
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-bold" href="profile.php">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link fw-bold dropdown-toggle" href="profile.php" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <!-- <span data-feather="users"></span> -->
                                 Profile
                             </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li> <a class="dropdown-item" href="#">Personal Info</a></li>
+                                <li><a class="dropdown-item" href="#">Address Book</a></li>
+                            </ul>
+                            <!-- <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div> -->
                         </li>
                     </ul>
                 </div>
