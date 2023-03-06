@@ -33,7 +33,9 @@ try {
 
     if ($values[2]["tag"] == "ERROR") {
         header('Content-Type: application/json; charset=utf-8');
-        echo json_encode("{'status': 401, 'message': " . $values[2]['value'] . "}");
+        $arr = array("status" => 401, "message" => $values[2]['value']);
+
+        echo json_encode($arr);
     } else {
         echo json_encode($values[8]);
     }
