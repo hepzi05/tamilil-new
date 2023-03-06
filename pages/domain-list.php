@@ -17,6 +17,7 @@ require "sidebar.php";
                         <th>Is locked</th>
                         <th>Auto renew</th>
                         <th>Premium</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody id="tbody">
@@ -29,6 +30,9 @@ require "sidebar.php";
 
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 <link href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/solid.js" integrity="sha384-/BxOvRagtVDn9dJ+JGCtcofNXgQO/CCCVKdMfL115s3gOgQxWaX/tSq5V8dRgsbc" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/fontawesome.js" integrity="sha384-dPBGbj4Uoy1OOpM4+aRGfAOc0W37JkROT+3uynUgTHZCHZNMHfGXsmmvYTffZjYO" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
     $('#table_id').DataTable();
@@ -47,7 +51,7 @@ require "sidebar.php";
             console.log(result, "result");
             const response = JSON.parse(result);
             console.log(JSON.parse(result), "success");
-            if (response) {
+            if (response.length>0) {
                 console.log(response, "response");
                 // window.location.replace("dashboard.php");
 
@@ -55,11 +59,9 @@ require "sidebar.php";
                 table.innerHTML = "";
                 response.map((item,index) => {
                     console.log(item);
-                    table.innerHTML += " <tr> <td>" + (index+1)  + "</td> <td>" + item.attributes.NAME + "</td> <td>" + item.attributes.CREATED + "</td> <td class="+(item.attributes.ISLOCKED === "true"?"text-success":"text-danger")+">" + item.attributes.ISLOCKED + "</td> <td>" + (item.attributes.AUTORENEW === "true" ? "on" : "off") + "</td> <td>" +( item.attributes.ISPREMIUM === "true"?"yes":"no") + "</td> </tr> ";
+                    table.innerHTML += " <tr> <td>" + (index+1)  + "</td> <td>" + item.attributes.NAME + "</td> <td>" + item.attributes.CREATED + "</td> <td class="+(item.attributes.ISLOCKED === "true"?"text-success":"text-danger")+">" + item.attributes.ISLOCKED + "</td> <td>" + (item.attributes.AUTORENEW === "true" ? "on" : "off") + "</td> <td>" +( item.attributes.ISPREMIUM === "true"?"yes":"no") + "</td><td><div><i class='fa fa-solid fa-eye text-primary' title='View'></i><i class='fa fa-solid fa-pen text-success ms-3' title='Edit'></i></div></td> </tr> ";
                 })
 
-            } else {
-                alert("No response");
             }
         },
         error: function(error) {
