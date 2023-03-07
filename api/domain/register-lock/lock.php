@@ -38,3 +38,5 @@ try {
     echo $e;
     print_r($e);
 }
+
+?>

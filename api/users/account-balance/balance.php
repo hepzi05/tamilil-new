@@ -1,5 +1,5 @@
 <?php
-require("../variables.php");
+require("../../variables.php");
 $xmlparser = xml_parser_create();
 
 $username = $_POST['username'];
@@ -26,3 +26,5 @@ try {
 } catch (Exception $e) {
     echo $e;
 }
+
+?>
