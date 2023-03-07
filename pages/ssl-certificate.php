@@ -47,7 +47,7 @@ const username = "siddhamedicine";
 console.log(username, "user");
 
 $.post({
-    url: "../api/get-ssl-certificate/get-ssl-certificate.php",
+    url: "../api/ssl/lists/ssl-lists.php",
     data: {
         username: username,
     },
