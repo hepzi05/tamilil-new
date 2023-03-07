@@ -113,7 +113,7 @@ if (isset($_POST['selectYearPlan'])) {
 
     // Check domaim pricing
     $.post({
-        url: "../api/domain-pricing/domain-pricing.php",
+        url: "../api/domain/pricing/domain-pricing.php",
         data: {
             domain: localStorage.getItem("searchedDomain")
         },

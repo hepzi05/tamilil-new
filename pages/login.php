@@ -111,7 +111,7 @@
             console.log(username, password);
 
             $.post({
-                url: "../api/login/login.php",
+                url: "../api/users/login/login.php",
                 data: {
                     username: username,
                     password: password

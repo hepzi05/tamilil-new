@@ -43,7 +43,7 @@ require "sidebar.php";
     console.log(username, "user");
 
     $.post({
-        url: "../api/get-domain-lists/get-domain-lists.php",
+        url: "../api/domain/lists/domain-lists.php",
         data: {
             username: username,
         },

@@ -137,7 +137,7 @@ if(isset($_POST['choose'])){
 
             // Check domaim pricing
             $.post({
-                url: "../api/domain-check/check-domain.php",
+                url: "../api/domain/check/check-domain.php",
                 data: {
                     domain: search
                 },

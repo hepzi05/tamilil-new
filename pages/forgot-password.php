@@ -113,7 +113,7 @@
         console.log(username, "user");
 
         $.post({
-            url: "../api/forgot-password/forgot-password.php",
+            url: "../api/users/password/forgot-password.php",
             data: {
                 username: username,
             },
