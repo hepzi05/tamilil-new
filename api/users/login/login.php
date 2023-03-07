@@ -1,5 +1,5 @@
 <?php
-require("../variables.php");
+require("../../variables.php");
 $xmlparser = xml_parser_create();
 session_start();
 
@@ -30,3 +30,5 @@ try {
 } catch (Exception $e) {
     echo $e;
 }
+
+?>

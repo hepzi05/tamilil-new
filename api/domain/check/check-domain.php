@@ -1,5 +1,5 @@
 <?php
-require("../variables.php");
+require("../../variables.php");
 $xmlparser = xml_parser_create();
 
 $domain = $_POST["domain"];
@@ -44,3 +44,5 @@ try {
 } catch (Exception $e) {
     echo $e;
 }
+
+?>

@@ -1,5 +1,5 @@
 <?php
-require("../variables.php");
+require("../../variables.php");
 $xmlparser = xml_parser_create();
 
 define("NAMECHEAP_COMMAND", "namecheap.users.create");
@@ -48,3 +48,5 @@ try {
     // print_r($e);
     echo $e;
 }
+
+?>
