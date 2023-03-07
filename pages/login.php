@@ -120,6 +120,8 @@
                     const response = JSON.parse(result);
                     console.log(JSON.parse(result), "success");
                     if (response.LOGINSUCCESS) {
+                        console.log(response,"response");
+                        sessionStorage.setItem("user",JSON.stringify(response));
                         window.location.replace("dashboard.php");
                     } else {
                         alert("Login failed");

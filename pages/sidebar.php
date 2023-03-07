@@ -116,8 +116,8 @@ if (isset($_POST["logout"])) {
                                 Profile
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li> <a class="dropdown-item" href="#">Personal Info</a></li>
-                                <li><a class="dropdown-item" href="#">Address Book</a></li>
+                                <li> <a class="dropdown-item" href="profile.php">Personal Info</a></li>
+                                <li><a class="dropdown-item" href="address-book.php">Address Book</a></li>
                             </ul>
                             <!-- <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
