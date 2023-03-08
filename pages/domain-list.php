@@ -38,7 +38,7 @@ require "sidebar.php";
     $('#table_id').DataTable();
 });
     // function checkLogin() {
-    const username = "siddhamedicine";
+    const username = JSON.parse(sessionStorage.getItem('user'))['USERNAME'];
 
     console.log(username, "user");
 

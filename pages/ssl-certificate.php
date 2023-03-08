@@ -42,7 +42,7 @@ $(document).ready(function() {
 });
 </script>
 <script>
-const username = "siddhamedicine";
+const username = JSON.parse(sessionStorage.getItem('user'))['USERNAME'];
 
 console.log(username, "user");
 

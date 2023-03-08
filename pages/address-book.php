@@ -47,7 +47,7 @@ $(document).ready(function() {
     $('#table_id').DataTable();
 });
 // function checkLogin() {
-const username = "bharathi573";
+const username = JSON.parse(sessionStorage.getItem('user'))['USERNAME'];
 
 console.log(username, "user");
 
