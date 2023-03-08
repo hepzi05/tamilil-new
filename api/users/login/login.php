@@ -24,7 +24,7 @@ try {
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode("{'status': 401, 'message': " . $values[2]['value'] . "}");
     } else {
-        $_SESSION["user-details"] = json_encode($values[8]["attributes"]);
+        $_SESSION["user-details"] = $values[8]["attributes"];
         echo json_encode($values[8]["attributes"]);
     }
 } catch (Exception $e) {
