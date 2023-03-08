@@ -4,6 +4,7 @@ $xmlparser = xml_parser_create();
 session_start();
 
 $username = $_POST['username'];
+$addressid = $_POST['addressid'];
 
 if (!defined('NAMECHEAP_DOMAIN') && !defined('NAMECHEAP_APIUSER') && !defined('NAMECHEAP_APIKEY') && !defined('NAMECHEAP_CLIENTIP')) {
     echo "Config variables are missing...";
@@ -12,7 +13,7 @@ if (!defined('NAMECHEAP_DOMAIN') && !defined('NAMECHEAP_APIUSER') && !defined('N
 try {
 
     $response = file_get_contents(
-        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.address.getList"
+        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.address.getinfo&AddressId=$addressid"
     );
 
     xml_parse_into_struct($xmlparser, $response, $values);
@@ -26,7 +27,7 @@ try {
         $filteredArr = [];
 
         foreach ($values as $item) {
-            if ($item["tag"] == "LIST" && $item["attributes"]["ADDRESSID"] != "0"){
+            if ( !(in_array($item["tag"], ["APIRESPONSE", "ERRORS", "WARNINGS", "REQUESTEDCOMMAND", "COMMANDRESPONSE", "GETADDRESSINFORESULT", "SERVER", "GMTTIMEDIFFERENCE", "EXECUTIONTIME"]))) {
                 array_push($filteredArr, $item);
             }
         }
