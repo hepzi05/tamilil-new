@@ -2,10 +2,6 @@
 
 session_start();
 
-// if (empty($_SESSION["user-details"])) {
-//     header("Location: login.php");
-// }
-
 if (isset($_POST["logout"])) {
     session_destroy();
     session_unset();
@@ -59,7 +55,9 @@ if (isset($_POST["logout"])) {
                 <img src="../assets/img/tamili-logo-white.png" class="brand-logo" alt="Logo">
             </a>
             <div class="float-end">
-                <a href="./login.php" class="btn btn-theme btn-sm me-4" name="logout">Sign out</a>
+                <form method="POST">
+                    <button class="btn btn-theme btn-sm me-4" name="logout">Sign out</button>
+                </form>
             </div>
         </nav>
         <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 text-light fw-bold" href="#">Company name</a> -->
