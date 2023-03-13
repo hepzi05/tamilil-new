@@ -11,6 +11,7 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 
 $address1 = $_POST['address1'];
+$address2 = $_POST['address2'];
 $city = $_POST['city'];
 $zip = $_POST['zip'];
 $country = $_POST['country'];
@@ -25,7 +26,7 @@ if (!defined('NAMECHEAP_DOMAIN') && !defined('NAMECHEAP_APIUSER') && !defined('N
 try {
 
     $response = file_get_contents(
-        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.address.create&AddressName=$addressName&EmailAddress=$email&FirstName=$firstname&LastName=$lastname&Address1=$address1&City=$city&Zip=$zip&Country=$country&Phone=$phone&StateProvince=$state&StateProvinceChoice=P"
+        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.address.create&AddressName=$addressName&EmailAddress=$email&FirstName=$firstname&LastName=$lastname&Address1=$address1&Address2=$address2&City=$city&Zip=$zip&Country=$country&Phone=$phone&StateProvince=$state&StateProvinceChoice=P"
     );
 
     xml_parse_into_struct($xmlparser, $response, $values);
