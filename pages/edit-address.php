@@ -6,7 +6,7 @@ require "sidebar.php";
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <div>
-            <h4 class="text-secondary">Add Primary Address</h4>
+            <h4 class="text-secondary">Edit Address</h4>
         </div>
     </div>
     <div class="row">
@@ -14,15 +14,17 @@ require "sidebar.php";
             <h4 class="text-secondary mt-4">Basic Information</h4>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">Address Name</label>
-                <input type="text" class="form-control w-75" id="addressname" value="Primary Address" />
+                <input type="text" class="form-control w-75" id="addressname" placeholder="Address Name"/>
             </div>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">First Name*</label>
-                <input type="text" class="form-control w-75" value="<?php echo $user['FIRSTNAME']?>" id="firstname" placeholder="First Name" />
+                <input type="text" class="form-control w-75" id="firstname"
+                    placeholder="First Name" />
             </div>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">Last Name*</label>
-                <input type="text" class="form-control w-75" value="<?php echo $user['LASTNAME']?>" id="lastname" placeholder="Last Name" />
+                <input type="text" class="form-control w-75" id="lastname"
+                    placeholder="Last Name" />
             </div>
 
             <h4 class="text-secondary mt-4">Street Information</h4>
@@ -55,14 +57,14 @@ require "sidebar.php";
 
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">Phone Numer*</label>
-                <input type="number" class="form-control w-75" id="phone" placeholder="Phone Numer" />
+                <input type="text" class="form-control w-75" id="phone" placeholder="Phone Numer" />
             </div>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">Email Address</label>
                 <input type="email" value="<?php echo $user['EMAIL']?>" class="form-control w-75" id="email" disabled />
             </div>
             <div class="mt-5 mb-5 text-center">
-                <button id="save" class="btn btn-primary" onclick="saveChanges()">Save Changes</button>
+                <button id="save" class="btn btn-primary" onclick="setUpdate()">Update</button>
                 <button id="cancel" class="btn btn-danger ms-3" onclick="setCancel()">Cancel</button>
             </div>
         </div>
@@ -81,30 +83,64 @@ require "sidebar.php";
     integrity="sha384-dPBGbj4Uoy1OOpM4+aRGfAOc0W37JkROT+3uynUgTHZCHZNMHfGXsmmvYTffZjYO" crossorigin="anonymous">
 </script>
 <script>
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+    });
+    let id = params.addressid;
+
+    const username = JSON.parse(sessionStorage.getItem('user'))['USERNAME'];
+
+    $.post({
+        url: "../api/users/address/address-info.php",
+        data: {
+            username: username,
+            addressid: id,
+        },
+        success: function(result) {
+            const response = JSON.parse(result);
+            console.log(JSON.parse(result), "success");
+                document.getElementById("addressname").value = response[2].value;
+                document.getElementById("firstname").value = response[3].value;
+                document.getElementById("lastname").value = response[4].value;
+                document.getElementById("add1").value = response[5].value;
+                document.getElementById("add2").value = response[6].value;
+                document.getElementById("city").value = response[7].value;
+                document.getElementById("zip").value = response[9].value;
+                document.getElementById("state").value = response[8].value;
+                document.getElementById("phone").value = response[11].value;
+                document.getElementById("country").value = response[10].value;
+        },
+        error: function(error) {
+            console.log(JSON.stringify(error), "error");
+        }
+
+    });
+
+
 function setCancel() {
     window.location.replace("address-book.php");
 }
 
-function saveChanges() {
-    const username = JSON.parse(sessionStorage.getItem('user'))['USERNAME'];
+function setUpdate() {
     const addressName = document.getElementById("addressname").value
     const email = document.getElementById("email").value
     const firstname = document.getElementById("firstname").value
     const lastname = document.getElementById("lastname").value
 
-    const address1 = document.getElementById("add1").value 
-    const address2 = document.getElementById("add2").value 
+    const address1 = document.getElementById("add1").value
+    const address2 = document.getElementById("add2").value
     const city = document.getElementById("city").value
     const zip = document.getElementById("zip").value
     const country = document.getElementById("country").value
     const phone = document.getElementById("phone").value
     const state = document.getElementById("state").value
 
-
     $.post({
-        url: "../api/users/address/add-address.php",
+        url: "../api/users/address/update-address.php",
         data: {
             username: username,
+            addressid: id,
             addressName: addressName,
             email: email,
             firstname: firstname,
@@ -119,11 +155,11 @@ function saveChanges() {
         },
         success: function(result) {
             console.log(result, "result");
-            if(result.status===401){
+            if (result.status === 401) {
                 alert(result.message);
                 return;
             }
-                alert("Saved your changes");
+            alert("Saved your changes");
         },
         error: function(error) {
             console.log(JSON.stringify(error), "error");

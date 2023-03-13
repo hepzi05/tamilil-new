@@ -10,10 +10,10 @@ require "sidebar.php";
             <div>
                 <h3 class="text-secondary float-start">Address Book</h3>
                 <a href="add-address.php"><button class="btn btn-primary float-end">
-                   Add Address</button></a>
+                        Add Address</button></a>
             </div>
             <div class="clearfix"></div>
-            <br/><br/>
+            <br /><br />
             <table class="table" id="table_id">
                 <thead>
                     <tr>
@@ -29,6 +29,7 @@ require "sidebar.php";
             </table>
         </div>
     </div>
+    <?php require "./address-modal.php" ?>
 </main>
 
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
@@ -43,6 +44,11 @@ require "sidebar.php";
     integrity="sha384-dPBGbj4Uoy1OOpM4+aRGfAOc0W37JkROT+3uynUgTHZCHZNMHfGXsmmvYTffZjYO" crossorigin="anonymous">
 </script>
 <script>
+
+function setEdit(id){
+    window.location.replace("edit-address.php?addressid="+id);
+}
+
 $(document).ready(function() {
     $('#table_id').DataTable();
 });
@@ -71,9 +77,8 @@ $.post({
                 table.innerHTML += " <tr> <td>" + (index + 1) + "</td> <td>" + item.attributes
                     .ADDRESSNAME + "</td> <td>" + (item.attributes.ISDEFAULT === "true" ? "yes" :
                         "no") +
-                    "</td><td><div><i class='fa fa-solid fa-eye text-primary' title='View'></i><i class='fa fa-solid fa-pen text-success ms-3 ' title='Edit'></i><i class='fa fa-solid fa-trash text-danger ms-3' title='Delete'></i></div></td> </tr> ";
+                    "</td><td><div><i class='fa fa-solid fa-eye text-primary' title='View' data-toggle='modal' data-target='#exampleModalCenter' onclick='setView("+item.attributes.ADDRESSID+")'></i><i class='fa fa-solid fa-pen text-success ms-3 ' title='Edit' onclick='setEdit("+item.attributes.ADDRESSID+")'></i><i class='fa fa-solid fa-trash text-danger ms-3' title='Delete'></i></div></td> </tr> ";
             })
-
         }
     },
     error: function(error) {

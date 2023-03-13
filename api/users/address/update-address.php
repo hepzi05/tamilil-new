@@ -7,18 +7,18 @@ $username = $_POST['username'];
 $addressid = $_POST['addressid'];
 
 $addressName = $_POST['addressName'];
-$email = $_POST['email'];
+// $email = $_POST['email'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
-$jobtitle = $_POST['jobtitle'];
-$organization = $_POST['organization'];
+// $jobtitle = $_POST['jobtitle'];
+// $organization = $_POST['organization'];
 $address1 = $_POST['address1'];
+$address2 = $_POST['address2'];
 $city = $_POST['city'];
 $zip = $_POST['zip'];
 $country = $_POST['country'];
 $phone = $_POST['phone'];
 $state = $_POST['state'];
-$stateProvinceChoice = $_POST['stateProvinceChoice'];
 
 if (!defined('NAMECHEAP_DOMAIN') && !defined('NAMECHEAP_APIUSER') && !defined('NAMECHEAP_APIKEY') && !defined('NAMECHEAP_CLIENTIP')) {
     echo "Config variables are missing...";
@@ -27,7 +27,7 @@ if (!defined('NAMECHEAP_DOMAIN') && !defined('NAMECHEAP_APIUSER') && !defined('N
 try {
 
     $response = file_get_contents(
-        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.address.update&AddressId=$addressid&AddressName=$addressName&EmailAddress=$email&FirstName=$firstname&LastName=$lastname&JobTitle=$jobtitle&Organization=$organization&Address1=$address1&City=$city&Zip=$zip&Country=$country&Phone=$phone&StateProvince=$state&StateProvinceChoice=$stateProvinceChoice"
+        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.address.update&AddressId=$addressid&AddressName=$addressName&FirstName=$firstname&LastName=$lastname&Address1=$address1&Address2=$address2&City=$city&Zip=$zip&Country=$country&Phone=$phone&StateProvince=$state"
     );
 
     xml_parse_into_struct($xmlparser, $response, $values);
