@@ -27,8 +27,8 @@ try {
         $filteredArr = [];
 
         foreach ($values as $item) {
-            if ( !(in_array($item["tag"], ["APIRESPONSE", "ERRORS", "WARNINGS", "REQUESTEDCOMMAND", "COMMANDRESPONSE", "GETADDRESSINFORESULT", "SERVER", "GMTTIMEDIFFERENCE", "EXECUTIONTIME"]))) {
-                array_push($filteredArr, $item);
+            if ( !(in_array($item["tag"], ["DEFAULT_YN","STATEPROVINCECHOICE","APIRESPONSE", "ERRORS", "WARNINGS", "REQUESTEDCOMMAND", "COMMANDRESPONSE", "GETADDRESSINFORESULT", "SERVER", "GMTTIMEDIFFERENCE", "EXECUTIONTIME"]))) {
+                array_push($filteredArr, array("name" => $item["tag"], "value" => $item["value"]));
             }
         }
 
