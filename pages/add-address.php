@@ -3,6 +3,14 @@ require "sidebar.php";
 ?>
 <?php $user=$_SESSION['user-details']?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-5">
+    <!-- Spinner Start -->
+    <!-- <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div> -->
+    <!-- Spinner End -->
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <div>
@@ -13,22 +21,22 @@ require "sidebar.php";
         <div class="col-ld-9 col-md-9 col-sm-12">
             <h4 class="text-secondary mt-4">Basic Information</h4>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
-                <label class="fw-bold text-secondary mt-2">Address Name</label>
-                <input type="text" class="form-control w-75" id="addressname" value="Primary Address" />
+                <label class="fw-bold text-secondary mt-2">Address Name*</label>
+                <input type="text" class="form-control w-75" id="addressname" value="Primary Address" required/>
             </div>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">First Name*</label>
-                <input type="text" class="form-control w-75" value="<?php echo $user['FIRSTNAME']?>" id="firstname" placeholder="First Name" />
+                <input type="text" class="form-control w-75" value="<?php echo $user['FIRSTNAME']?>" id="firstname" placeholder="First Name" required/>
             </div>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">Last Name*</label>
-                <input type="text" class="form-control w-75" value="<?php echo $user['LASTNAME']?>" id="lastname" placeholder="Last Name" />
+                <input type="text" class="form-control w-75" value="<?php echo $user['LASTNAME']?>" id="lastname" placeholder="Last Name" required/>
             </div>
 
             <h4 class="text-secondary mt-4">Street Information</h4>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">Address*</label>
-                <input type="text" class="form-control w-75" id="add1" placeholder="Address Line 1" />
+                <input type="text" class="form-control w-75" id="add1" placeholder="Address Line 1" required/>
             </div>
             <div class="mt-3">
                 <input type="text" class="form-control w-75 float-end" id="add2" placeholder="Address Line 2" />
@@ -40,7 +48,7 @@ require "sidebar.php";
             </div>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">City*</label>
-                <input type="text" class="form-control w-75" id="city" placeholder="City" />
+                <input type="text" class="form-control w-75" id="city" placeholder="City" required/>
             </div>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">ZIP/Postal Code</label>
@@ -48,14 +56,14 @@ require "sidebar.php";
             </div>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">Country*</label>
-                <input type="text" class="form-control w-75" id="country" placeholder="Country" />
+                <input type="text" class="form-control w-75" id="country" placeholder="Country" required/>
             </div>
 
             <h4 class="text-secondary mt-4">Contact Information</h4>
 
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">Phone Numer*</label>
-                <input type="number" class="form-control w-75" id="phone" placeholder="Phone Numer" />
+                <input type="number" class="form-control w-75" id="phone" placeholder="Phone Numer" required/>
             </div>
             <div class="form-group d-flex flex-row justify-content-between mt-4">
                 <label class="fw-bold text-secondary mt-2">Email Address</label>

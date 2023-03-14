@@ -7,7 +7,7 @@ $username = $_POST['username'];
 $addressid = $_POST['addressid'];
 
 $addressName = $_POST['addressName'];
-// $email = $_POST['email'];
+$email = $_POST['email'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 // $jobtitle = $_POST['jobtitle'];
@@ -27,7 +27,7 @@ if (!defined('NAMECHEAP_DOMAIN') && !defined('NAMECHEAP_APIUSER') && !defined('N
 try {
 
     $response = file_get_contents(
-        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.address.update&AddressId=$addressid&AddressName=$addressName&FirstName=$firstname&LastName=$lastname&Address1=$address1&Address2=$address2&City=$city&Zip=$zip&Country=$country&Phone=$phone&StateProvince=$state"
+        NAMECHEAP_DOMAIN . "?ApiUser=" . NAMECHEAP_APIUSER . "&ApiKey=" . NAMECHEAP_APIKEY . "&UserName=$username&ClientIp=" . NAMECHEAP_CLIENTIP . "&Command=namecheap.users.address.update&AddressId=$addressid&AddressName=$addressName&EmailAddress=$email&FirstName=$firstname&LastName=$lastname&Address1=$address1&Address2=$address2&City=$city&Zip=$zip&Country=$country&Phone=$phone&StateProvince=$state"
     );
 
     xml_parse_into_struct($xmlparser, $response, $values);
