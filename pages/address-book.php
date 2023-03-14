@@ -3,6 +3,15 @@ require "sidebar.php";
 ?>
 
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-5">
+
+    <!-- Spinner Start -->
+    <!-- <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div> -->
+    <!-- Spinner End -->
     <input type="text" placeholder="Search for your next domain"
         class="w-100 mt-5 py-3 px-3 border border-0 shadow-lg rounded-3" />
     <div class="pt-3 pb-2 mb-3 border-bottom mt-4">
@@ -29,7 +38,7 @@ require "sidebar.php";
             </table>
         </div>
     </div>
-    <?php require "./address-modal.php" ?>
+    <?php require "./view-address.php" ?>
 </main>
 
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
@@ -44,9 +53,15 @@ require "sidebar.php";
     integrity="sha384-dPBGbj4Uoy1OOpM4+aRGfAOc0W37JkROT+3uynUgTHZCHZNMHfGXsmmvYTffZjYO" crossorigin="anonymous">
 </script>
 <script>
+function setEdit(id) {
+    window.location.replace("edit-address.php?addressid=" + id);
+}
 
-function setEdit(id){
-    window.location.replace("edit-address.php?addressid="+id);
+function setDelete(id) {
+    let text = "Do you want to delete this address from address-book?";
+    if (confirm(text)) {
+        alert("Deleted successfully");
+    }
 }
 
 $(document).ready(function() {
@@ -77,7 +92,12 @@ $.post({
                 table.innerHTML += " <tr> <td>" + (index + 1) + "</td> <td>" + item.attributes
                     .ADDRESSNAME + "</td> <td>" + (item.attributes.ISDEFAULT === "true" ? "yes" :
                         "no") +
-                    "</td><td><div><i class='fa fa-solid fa-eye text-primary' title='View' data-toggle='modal' data-target='#exampleModalCenter' onclick='setView("+item.attributes.ADDRESSID+")'></i><i class='fa fa-solid fa-pen text-success ms-3 ' title='Edit' onclick='setEdit("+item.attributes.ADDRESSID+")'></i><i class='fa fa-solid fa-trash text-danger ms-3' title='Delete'></i></div></td> </tr> ";
+                    "</td><td><div><i class='fa fa-solid fa-eye text-primary' title='View' data-toggle='modal' data-target='#exampleModalCenter' onclick='setView(" +
+                    item.attributes.ADDRESSID +
+                    ")'></i><i class='fa fa-solid fa-pen text-success ms-3 ' title='Edit' onclick='setEdit(" +
+                    item.attributes.ADDRESSID +
+                    ")'></i><i class='fa fa-solid fa-trash text-danger ms-3' title='Delete' onclick='setDelete(" +
+                    item.attributes.ADDRESSID + ")'></i></div></td> </tr> ";
             })
         }
     },

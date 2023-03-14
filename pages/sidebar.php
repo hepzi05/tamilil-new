@@ -92,16 +92,16 @@ if (isset($_POST["logout"])) {
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="position-sticky pt-3">
+                <div class="position-sticky pt-4 ms-3">
                     <ul class="nav flex-column" id="ulCategory">
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" aria-current="page" href="dashboard.php">
+                            <a class="nav-link fw-bold" aria-current="page" href="dashboard.php" onclick="setActive()">
                                 <!-- <span data-feather="home"></span> -->
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="expired-expiring.php">
+                            <a class="nav-link fw-bold" id="active" href="expired-expiring.php">
                                 <!-- <span data-feather="users"></span> -->
                                 Expired/Expiring
                             </a>
@@ -162,12 +162,20 @@ if (isset($_POST["logout"])) {
     <script src="feather.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $("#ulCategory>li").click(function() {
-            $("#ulCategory>li").removeClass("active");
-            $(this).addClass("active");
-        })
-    });
+        
+
+    function setActive(){
+        let text = document.getElementById("active");
+        console.log(text,"text");
+        text.addClass("active");
+        document.querySelector(".active").style.color = "blue";
+    }
+    // $(document).ready(function() {
+    //     $("#ulCategory>li").click(function() {
+    //         $("#ulCategory>li").removeClass("active");
+    //         $(this).addClass("active");
+    //     })
+    // });
     </script>
 </body>
 
